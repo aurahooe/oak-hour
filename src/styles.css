@@ -1,0 +1,94 @@
+:root {
+  --paper: #efe4cf;
+  --ink: #1d1611;
+  --mute: #6b5a48;
+  --line: #cbb89a;
+  --copper: #b45a28;
+  --card: #f7efde;
+  --shadow: 0 18px 40px rgba(40, 22, 8, 0.12);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; }
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #f6e7c4 0%, transparent 50%),
+    radial-gradient(900px 500px at 110% 10%, #e8c9a0 0%, transparent 45%),
+    var(--paper);
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.page { position: relative; max-width: 1100px; margin: 0 auto; padding: 28px 22px 80px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; animation: rise 700ms ease both; }
+.brand { display: flex; gap: 12px; align-items: center; }
+.mark {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: conic-gradient(from 220deg, #7a3a16, #e0a36a, #7a3a16);
+  box-shadow: inset 0 0 0 6px var(--paper), 0 0 0 1px var(--line);
+}
+.word { font-family: Fraunces, serif; font-size: 22px; margin: 0; letter-spacing: -0.03em; }
+.tag { margin: 0; color: var(--mute); font-size: 12px; }
+.clock { display: flex; align-items: center; gap: 10px; }
+.ring { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--ink); position: relative; }
+.ring i { position: absolute; left: 50%; top: 6px; width: 1.5px; height: 12px; background: var(--copper); transform-origin: 50% 12px; transition: transform 800ms cubic-bezier(.2,.7,.2,1); }
+.left { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 18px; }
+.until { margin: 0; font-size: 11px; color: var(--mute); letter-spacing: 0.04em; }
+.who { display: flex; gap: 8px; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+.solid, .ghost { border-radius: 999px; padding: 8px 14px; border: 1px solid var(--ink); transition: transform 180ms ease, background 180ms ease; }
+.solid { background: var(--ink); color: var(--paper); }
+.solid:hover { transform: translateY(-1px); }
+.ghost { background: transparent; }
+.ghost:hover { background: rgba(29,22,17,0.06); }
+.ghost.danger { border-color: transparent; color: #8a2a16; }
+.hourboard { margin: 48px 0 28px; animation: rise 900ms ease both; }
+.kicker { text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; color: var(--copper); margin: 0 0 8px; }
+.headline { font-family: Fraunces, serif; font-size: clamp(36px, 7vw, 72px); line-height: 0.95; margin: 0 0 14px; letter-spacing: -0.04em; }
+.editorial { max-width: 46ch; color: var(--mute); font-size: 17px; line-height: 1.5; margin: 0; }
+.tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.tabs button { background: none; border: 0; padding: 10px 14px; color: var(--mute); position: relative; }
+.tabs button.on { color: var(--ink); }
+.tabs button.on::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 2px; background: var(--copper); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); padding: 18px; box-shadow: var(--shadow); animation: lift 500ms ease both; }
+.card h2 { font-family: Fraunces, serif; font-size: 22px; margin: 0 0 10px; }
+.card p { margin: 0; white-space: pre-wrap; line-height: 1.5; }
+.card footer { display: flex; justify-content: space-between; margin-top: 16px; color: var(--mute); font-size: 12px; }
+.card:hover { transform: rotate(-0.4deg) translateY(-2px); transition: transform 220ms ease; }
+.desk { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 28px; }
+.compose, .sheet, .drawer { background: var(--card); border: 1px solid var(--line); padding: 20px; box-shadow: var(--shadow); }
+label { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; font-size: 13px; color: var(--mute); }
+input, textarea { background: #fbf6ea; border: 1px solid var(--line); padding: 10px 12px; border-radius: 8px; }
+.check { flex-direction: row; align-items: center; gap: 8px; }
+.drawer h3 { font-family: Fraunces, serif; margin: 0 0 12px; }
+.drawer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.drawer li { border-top: 1px solid var(--line); padding-top: 10px; }
+.drawer em { display: block; font-style: normal; color: var(--mute); font-size: 12px; }
+.row { display: flex; gap: 8px; margin-top: 6px; }
+.handleform { display: flex; gap: 8px; margin-bottom: 16px; }
+.handleform input { flex: 1; }
+.muted { color: var(--mute); }
+.ledger article { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.ledger time { color: var(--mute); font-size: 12px; font-family: "IBM Plex Mono", monospace; }
+.ledger h2 { font-family: Fraunces, serif; margin: 4px 0 6px; }
+.veil { position: fixed; inset: 0; background: rgba(29,22,17,0.35); display: grid; place-items: center; padding: 20px; z-index: 20; }
+.sheet { width: min(420px, 100%); animation: pop 280ms cubic-bezier(.2,.8,.2,1); }
+.err { color: #8a2a16; }
+.ok { color: #2d5a32; }
+.empty { color: var(--mute); }
+.floor { margin-top: 56px; color: var(--mute); font-size: 13px; max-width: 56ch; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes lift { from { opacity: 0; transform: translateY(12px) rotate(0.6deg); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+@media (max-width: 800px) { .top { flex-wrap: wrap; } .desk { grid-template-columns: 1fr; } .headline { font-size: 42px; } }
